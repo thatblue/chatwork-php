@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Yuki Konno
- * Date: 2017/08/21
- * Time: 19:36
- */
 namespace Tests\Innotama;
 
 use Innotama\ChatworkWrapper\ChatworkClient;
