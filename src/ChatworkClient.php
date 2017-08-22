@@ -4,6 +4,8 @@ namespace Innotama\ChatworkWrapper;
 use GuzzleHttp\Client;
 use Innotama\ChatworkWrapper\Exceptions\TooManyRequestsException;
 use Innotama\ChatworkWrapper\Model\Member;
+use Innotama\ChatworkWrapper\Model\Status;
+use Innotama\ChatworkWrapper\Model\Task;
 
 class ChatworkClient
 {
@@ -30,6 +32,7 @@ class ChatworkClient
      * 自分自身の情報にアクセスするAPIをコールします
      *
      * @see http://developer.chatwork.com/ja/endpoint_me.html#GET-me
+     * @return Member
      */
     public function me()
     {
@@ -37,6 +40,31 @@ class ChatworkClient
         $member = new Member($response);
 
         return $member;
+    }
+
+    /**
+     * 自分の未読数、タスク数を取得するAPIをコールします
+     *
+     * @see http://developer.chatwork.com/ja/endpoint_my.html#GET-my-status
+     * @return Status
+     */
+    public function myStatus()
+    {
+        $response = $this->callApi(static::METHOD_GET, 'my/status');
+        $status = new Status($response);
+
+        return $status;
+    }
+
+    /**
+     * 自分のタスク一覧を取得するAPIをコールします
+     *
+     * @see http://developer.chatwork.com/ja/endpoint_my.html#GET-my-tasks
+     * @return Task[]
+     */
+    public function myTasks()
+    {
+
     }
 
     protected static $paramKeys = [
