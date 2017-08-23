@@ -11,6 +11,7 @@ class BaseModel
     const VALUE_TYPE_INTEGER = 'integer';
     const VALUE_TYPE_STRING = 'string';
     const VALUE_TYPE_TIMESTAMP = 'timestamp';
+    const VALUE_TYPE_BOOLEAN = 'boolean';
 
     /**
      * BaseModel constructor.
@@ -28,7 +29,10 @@ class BaseModel
                             $this->values[$key] = (int)$value;
                             break;
                         case static::VALUE_TYPE_TIMESTAMP:
-                            $this->values[$key] = Carbon::createFromFormat('U', $this->values[$key]);
+                            $this->values[$key] = Carbon::createFromFormat('U', $value);
+                            break;
+                        case static::VALUE_TYPE_BOOLEAN:
+                            $this->values[$key] = (bool)$value;
                             break;
                         case static::VALUE_TYPE_STRING:
                         default:

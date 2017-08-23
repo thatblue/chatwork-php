@@ -64,7 +64,14 @@ class ChatworkClient
      */
     public function myTasks()
     {
+        $response = $this->callApi(static::METHOD_GET, 'my/tasks');
 
+        $tasks = [];
+        foreach ($response as $task) {
+            $tasks[] = new Task($task);
+        }
+
+        return $tasks;
     }
 
     protected static $paramKeys = [

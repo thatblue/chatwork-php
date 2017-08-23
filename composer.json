@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Innotama\\": "src/"
+            "Innotama\\ChatworkWrapper\\": "src/"
         }
     },
     "autoload-dev": {
