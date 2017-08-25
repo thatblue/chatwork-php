@@ -27,4 +27,23 @@ class Room extends BaseModel
     const ROLE_ADMIN = 'admin';
     const ROLE_MEMBER = 'member';
     const ROLE_READONLY = 'readonly';
+
+    const ICON_PRESET_GROUP = 'group';
+    const ICON_PRESET_CHECK = 'check';
+    const ICON_PRESET_DOCUMENT = 'document';
+    const ICON_PRESET_MEETING = 'meeting';
+    const ICON_PRESET_EVENT = 'event';
+    const ICON_PRESET_PROJECT = 'project';
+    const ICON_PRESET_BUSINESS = 'business';
+    const ICON_PRESET_STUDY = 'study';
+    const ICON_PRESET_SECURITY = 'security';
+    const ICON_PRESET_STAR = 'star';
+    const ICON_PRESET_IDEA = 'idea';
+    const ICON_PRESET_HEART = 'heart';
+    const ICON_PRESET_MAGCUP = 'magcup';
+    const ICON_PRESET_BEER = 'beer';
+    const ICON_PRESET_MUSIC = 'music';
+    const ICON_PRESET_SPORTS = 'sports';
+    const ICON_PRESET_TRAVEL = 'travel';
+
 }

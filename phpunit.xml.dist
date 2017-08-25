@@ -26,5 +26,8 @@
     <php>
         <env name="CHATWORK_API_KEY" value="***API KEY***" />
         <env name="ROOM_ID" value="***ROOM ID***" />
+        <env name="TEST_ROOM_ID" value="***TEST ROOM ID***" />
+        <env name="API_USER_ID" value="***API USER ID***" />
+        <env name="MEMBER_USER_ID" value="***MEMBER USER ID***" />
     </php>
 </phpunit>

@@ -7,6 +7,7 @@ class BaseModel
 {
     protected $values;
     protected static $fields = [];
+    protected $timezone;
 
     const VALUE_TYPE_INTEGER = 'integer';
     const VALUE_TYPE_STRING = 'string';
@@ -17,8 +18,9 @@ class BaseModel
      * BaseModel constructor.
      * @param $values
      */
-    public function __construct($values)
+    public function __construct($values, $timezone = null)
     {
+        $this->timezone = $timezone ? $timezone : ini_get('date.timezone');
         $this->values = [];
         foreach ($values as $key => $value) {
             if(isset(static::$fields[$key]) || in_array($key, static::$fields)) {
@@ -29,7 +31,7 @@ class BaseModel
                             $this->values[$key] = (int)$value;
                             break;
                         case static::VALUE_TYPE_TIMESTAMP:
-                            $this->values[$key] = Carbon::createFromFormat('U', $value);
+                            $this->values[$key] = Carbon::createFromFormat('U', $value)->setTimezone($timezone);
                             break;
                         case static::VALUE_TYPE_BOOLEAN:
                             $this->values[$key] = (bool)$value;

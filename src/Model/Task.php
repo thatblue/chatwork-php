@@ -19,18 +19,18 @@ class Task extends BaseModel
     /** @var Member タスクをアサインしたユーザーの情報 */
     protected $assigned_by_account;
 
-    public function __construct($values)
+    public function __construct($values, $timezone = null)
     {
-        parent::__construct($values);
+        parent::__construct($values, $timezone);
 
         foreach ($values as $key => $childValues) {
             // roomの値を取得して格納
             switch ($key) {
                 case 'room':
-                    $this->room = new Room($childValues);
+                    $this->room = new Room($childValues, $timezone);
                     break;
                 case 'assigned_by_account':
-                    $this->assigned_by_account = new Member($childValues);
+                    $this->assigned_by_account = new Member($childValues, $timezone);
                     break;
                 default:
                     break;
