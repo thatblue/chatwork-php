@@ -25,6 +25,5 @@ class ContactsTest extends TestCase
         $this->assertNotNull($contact->organization_name);
         $this->assertNotNull($contact->department);
         $this->assertNotNull($contact->avatar_image_url);
-        var_dump($contact);
     }
 }
