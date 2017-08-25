@@ -74,6 +74,25 @@ class ChatworkClient
         return $tasks;
     }
 
+    /**
+     * 自分のコンタクト一覧を取得するAPIをコールします
+     *
+     * @see http://developer.chatwork.com/ja/endpoint_contacts.html#GET-contacts
+     * @return Member[]
+     */
+    public function contacts()
+    {
+        $response = $this->callApi(static::METHOD_GET, 'contacts');
+
+        $contacts = [];
+        foreach($response as $contact) {
+            $contacts[] = new Member($contact);
+        }
+
+        return $contacts;
+
+    }
+
     protected static $paramKeys = [
         self::METHOD_GET => 'query',
         self::METHOD_POST => 'form_params',
