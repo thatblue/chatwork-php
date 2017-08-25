@@ -33,7 +33,7 @@ class MyTest extends TestCase
    {
        $client = new ChatworkClient(getenv('CHATWORK_API_KEY'));
        $tasks = $client->myTasks();
-       $this->assertEquals(2, count($tasks));
+       $this->assertCount(2, $tasks);
 
        $task = $tasks[0];
        $this->assertNotNull($task->task_id);

@@ -25,5 +25,6 @@
     </testsuites>
     <php>
         <env name="CHATWORK_API_KEY" value="***API KEY***" />
+        <env name="ROOM_ID" value="***ROOM ID***" />
     </php>
 </phpunit>
